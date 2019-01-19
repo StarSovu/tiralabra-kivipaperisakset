@@ -9,7 +9,7 @@ Koska tämä on ensimmäinen viikko, ei ohjelmassa ole vielä muuta kuin itse oh
 ## Mitä opin
 
 ## Epäselvä/vaikeudet
-En ole vielä aivan varma kaikista kurssin asioista.
+En ole vielä aivan varma kaikista kurssin asioista. Vaikeaa oli määrittelydokumentin tekeminen, sillä en ole oikein varma kaikista ohjelmaan liittyvistä asioista kuten sen aika- ja tilavaativuuksista.
 
 ## Seuraavaksi
 Seuraavaksi teen viikon 2 asioita, eli aloitan ohjelman tekemisen. Tavoitteena tehdä ainakin yksi käyttökelpoinen kivi-paperi-sakset algoritmi, joka osaa jotenkin huomioida vastustajan aikaisemmat valinnat sekä mahdollisuus pelata sitä vastaan tekstikäyttöliittymässä.
