@@ -20,7 +20,7 @@ public class Main {
         tilastot[1] = 0; //voitot
         tilastot[2] = 0; //häviöt
         
-        VastustajanEdellinenValinta vastustaja = new VastustajanEdellinenValinta();
+        Vastustaja vastustaja = new VastustajanEdellinenValinta();
         
         while (true) {
             String valinta = lukija.nextLine();

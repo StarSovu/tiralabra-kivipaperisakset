@@ -6,10 +6,10 @@
 package kivipaperisakset;
 
 /**
- *
- * @author sovu
+ * Vastustaja, joka valitsee sen perusteella, mikä voittaa vastustajan
+ * edellisen valinnan,
  */
-public class VastustajanEdellinenValinta {
+public class VastustajanEdellinenValinta implements Vastustaja {
     int edellinenValinta;
     
     /**
@@ -26,6 +26,7 @@ public class VastustajanEdellinenValinta {
      * (0: kivi, 1: paperi; 2: sakset)
      * @return palauttaa 
      */
+    @Override
     public int valitse() {
         int valinta = edellinenValinta + 1;
         if (valinta == 3) {
@@ -40,6 +41,7 @@ public class VastustajanEdellinenValinta {
      * seuraavan kerran.
      * @param valinta  Vastustajan valinta (0: kivi, 1: paperi, 2: sakset)
      */
+    @Override
     public void vastaanotaValinta(int valinta) {
         edellinenValinta = valinta;
     }
