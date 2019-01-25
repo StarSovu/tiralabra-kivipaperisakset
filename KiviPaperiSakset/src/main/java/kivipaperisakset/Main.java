@@ -52,7 +52,7 @@ public class Main {
             tilastot[voitto]++;
             
         }
-        System.out.println("Voitot: " + tilastot[0] + ", häviöt: " + tilastot[1] + ", tasapelit: " + tilastot[2]);
+        System.out.println("Voitot: " + tilastot[1] + ", häviöt: " + tilastot[2] + ", tasapelit: " + tilastot[0]);
     }
     
 }
