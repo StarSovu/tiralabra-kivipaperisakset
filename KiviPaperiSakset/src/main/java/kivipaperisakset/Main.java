@@ -13,14 +13,27 @@ public class Main {
      */
     public static void main(String[] args) {
         Scanner lukija = new Scanner(System.in);
+        
+        System.out.println("Valitse algoritmi (1 tai 2, muu valitsee satunnaisen)");
+        
+        VastustajanValinta algoritmiValinta = new VastustajanValinta();
+        String algoritmiValinta2 = lukija.nextLine();
+        Vastustaja vastustaja;
+        
+        if (algoritmiValinta2.equals("1")) {
+            vastustaja = algoritmiValinta.valittuVastustaja(1);
+        } else if (algoritmiValinta2.equals("2")) {
+            vastustaja = algoritmiValinta.valittuVastustaja(2);
+        } else {
+            vastustaja = algoritmiValinta.satunnainenVastustaja();
+        }
+        
         System.out.println("Valitse kivi, paperi tai sakset. k=kivi, p=paperi, s=sakset, kaikki muu lopettaa");
         
         int[] tilastot = new int[3];
         tilastot[0] = 0; //tasapelit
         tilastot[1] = 0; //voitot
         tilastot[2] = 0; //häviöt
-        
-        Vastustaja vastustaja = new VastustajanEdellinenValinta();
         
         while (true) {
             String valinta = lukija.nextLine();
