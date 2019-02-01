@@ -1,5 +1,6 @@
 package kivipaperisakset;
 
+import kivipaperisakset.vastustajat.Vastustaja;
 import java.util.Scanner;
 
 /**

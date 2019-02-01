@@ -5,6 +5,9 @@
  */
 package kivipaperisakset;
 
+import kivipaperisakset.vastustajat.VastustajanEdellinenValintaVastastrategia;
+import kivipaperisakset.vastustajat.Vastustaja;
+import kivipaperisakset.vastustajat.VastustajanEdellinenValinta;
 import java.util.Random;
 
 public class VastustajanValinta {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kivipaperisakset;
+package kivipaperisakset.vastustajat;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
  * @author sovu
  */
 public class VastustajanEdellinenValintaVastastrategiaTest {
+    VastustajanEdellinenValintaVastastrategia vastustaja;
     
     public VastustajanEdellinenValintaVastastrategiaTest() {
     }
@@ -31,15 +32,28 @@ public class VastustajanEdellinenValintaVastastrategiaTest {
     
     @Before
     public void setUp() {
+        vastustaja = new VastustajanEdellinenValintaVastastrategia();
     }
     
     @After
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void valitseeAluksiKiven() {
+        assertTrue(vastustaja.valitse() == 0);
+    }
+    
+    @Test
+    public void valitseeToisenaSakset() {
+        vastustaja.valitse();
+        assertTrue(vastustaja.valitse() == 2);
+    }
+    
+    @Test
+    public void valitseeKolmantenaPaperin() {
+        vastustaja.valitse();
+        vastustaja.valitse();
+        assertTrue(vastustaja.valitse() == 1);
+    }
 }
