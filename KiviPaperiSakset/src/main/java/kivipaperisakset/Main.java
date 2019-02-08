@@ -15,6 +15,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner lukija = new Scanner(System.in);
         
+        /**
+         * Alussa kysytään pelaajalta algoritmia. Nämä annetaan numeroina (pelaajan
+         * on tiedettävä ulkopuolisesti, mikä luku on mikäkin algoritmi).
+         */
         System.out.println("Valitse algoritmi (1 tai 2, muu valitsee satunnaisen)");
         
         VastustajanValinta algoritmiValinta = new VastustajanValinta();
