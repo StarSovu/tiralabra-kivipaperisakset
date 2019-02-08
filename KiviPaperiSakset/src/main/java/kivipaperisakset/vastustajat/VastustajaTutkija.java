@@ -52,31 +52,34 @@ public class VastustajaTutkija implements Vastustaja {
         vastustajanToiseksiEdellinen = vastustajanEdellinen;
         vastustajanEdellinen = valinta;
         this.paivitaEdellisetValinnat();
+        this.maaritaSeuraava();
     }
 
     @Override
     public int valitse() {
-        return (this.ennustettuSeraava + 1) % 3;
+        algoritminToiseksiEdellinen = algoritminEdellinen;
+        algoritminEdellinen = (this.ennustettuSeraava + 1) % 3;
+        return algoritminEdellinen;
     }
     
     /**
      * Päivittää aiemmatValinnat-taulukon arvoja.
      */
-    private void paivitaEdellisetValinnat() {
+    public void paivitaEdellisetValinnat() {
         if (vastustajanToiseksiEdellinen == -1) {
             return;
         }
-        int i = (algoritminToiseksiEdellinen - vastustajanToiseksiEdellinen) % 3;
-        int j = (vastustajanEdellinen - vastustajanToiseksiEdellinen) % 3;
-        int k = (algoritminEdellinen - vastustajanEdellinen) % 3;
+        int i = (algoritminToiseksiEdellinen - vastustajanToiseksiEdellinen + 3) % 3;
+        int j = (vastustajanEdellinen - vastustajanToiseksiEdellinen + 3) % 3;
+        int k = (algoritminEdellinen - vastustajanEdellinen + 3) % 3;
         aiemmatValinnat[i][j][k] += 1;
     }
     
     /**
-     * Määrittää seuraavan valinnan sen perusteella, mitä vastustaja on
-     * aiemmin valinnut.
+     * Määrittää ennustetun seuraavan valinnan pelaajalle sen perusteella,
+     * mitä käyttäjä on aikaisemmin valinnut.
      */
-    private void maaritaSeuraava() {
+    public void maaritaSeuraava() {
         
     }
     
