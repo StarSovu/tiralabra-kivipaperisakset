@@ -2,6 +2,7 @@ package kivipaperisakset;
 
 import kivipaperisakset.vastustajat.Vastustaja;
 import java.util.Scanner;
+import kivipaperisakset.vastustajat.VastustajaTutkija;
 
 /**
  *
@@ -19,6 +20,8 @@ public class Main {
          * Alussa kysytään pelaajalta algoritmia. Nämä annetaan numeroina (pelaajan
          * on tiedettävä ulkopuolisesti, mikä luku on mikäkin algoritmi).
          */
+        
+        /**
         System.out.println("Valitse algoritmi (1 tai 2, muu valitsee satunnaisen)");
         
         VastustajanValinta algoritmiValinta = new VastustajanValinta();
@@ -32,6 +35,9 @@ public class Main {
         } else {
             vastustaja = algoritmiValinta.satunnainenVastustaja();
         }
+        */
+        
+        Vastustaja vastustaja = new VastustajaTutkija();
         
         System.out.println("Valitse kivi, paperi tai sakset. k=kivi, p=paperi, s=sakset, kaikki muu lopettaa");
         

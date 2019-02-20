@@ -17,8 +17,8 @@ public class VastustajaTutkija implements Vastustaja {
     int vastustajanToiseksiEdellinen;
     int algoritminEdellinen;
     int algoritminToiseksiEdellinen;
-    int ennustettuSeraava;
-    int[][][] aiemmatValinnat;
+    int ennustettuSeuraava;
+    int[][] aiemmatValinnat;
     
     /**
      * Aiemmat valinnat selitys: Taulukon ensimmäinen luku (0, 1 tai 2) kertoo,
@@ -26,9 +26,6 @@ public class VastustajaTutkija implements Vastustaja {
      * Toinen luku kertoo, miten käyttäjä (algoritmin vastustaja) on seuraavaksi 
      * ruvennut pelaamaan. (0: sama, 1: edellisen voittava, 2: edelliselle
      * häviävä).
-     * Kolmas luku kertoo, onko tämä seuraava valinta johtanut algoritmin
-     * voittoon (1), käyttäjän voittoon (2) vai tasapeliin (0).
-     * Taulukko pitää kirjaa, kuinka monta kertaa kukin tapaus on tapahtunut.
      */
     public VastustajaTutkija() {
         this.random = new Random();
@@ -36,13 +33,11 @@ public class VastustajaTutkija implements Vastustaja {
         this.vastustajanToiseksiEdellinen = -1;
         this.algoritminEdellinen = -1;
         this.algoritminToiseksiEdellinen = -1;
-        this.ennustettuSeraava = random.nextInt(3);
-        this.aiemmatValinnat = new int[3][3][3];
+        this.ennustettuSeuraava = random.nextInt(3);
+        this.aiemmatValinnat = new int[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                for (int k = 0; k < 3; k++) {
-                    aiemmatValinnat[i][j][k] = 0;
-                }
+                aiemmatValinnat[i][j] = 0;
             }
         }
     }
@@ -58,21 +53,20 @@ public class VastustajaTutkija implements Vastustaja {
     @Override
     public int valitse() {
         algoritminToiseksiEdellinen = algoritminEdellinen;
-        algoritminEdellinen = (this.ennustettuSeraava + 1) % 3;
+        algoritminEdellinen = (this.ennustettuSeuraava + 1) % 3;
         return algoritminEdellinen;
     }
     
     /**
      * Päivittää aiemmatValinnat-taulukon arvoja.
      */
-    public void paivitaEdellisetValinnat() {
+    private void paivitaEdellisetValinnat() {
         if (vastustajanToiseksiEdellinen == -1) {
             return;
         }
         int i = (algoritminToiseksiEdellinen - vastustajanToiseksiEdellinen + 3) % 3;
         int j = (vastustajanEdellinen - vastustajanToiseksiEdellinen + 3) % 3;
-        int k = (algoritminEdellinen - vastustajanEdellinen + 3) % 3;
-        aiemmatValinnat[i][j][k] += 1;
+        aiemmatValinnat[i][j] += 1;
     }
     
     /**
@@ -80,7 +74,63 @@ public class VastustajaTutkija implements Vastustaja {
      * mitä käyttäjä on aikaisemmin valinnut.
      */
     public void maaritaSeuraava() {
-        
+        int i = (algoritminToiseksiEdellinen - vastustajanToiseksiEdellinen + 3) % 3;
+        int k = 0;
+        int arvausVaikuttaja = 0;
+        for (int j = 0; j < 3; j++) {
+            if (aiemmatValinnat[i][j] > k) {
+                k = aiemmatValinnat[i][j];
+                arvausVaikuttaja = kahdenPotenssi(j);
+            } else if (aiemmatValinnat[i][j] == k) {
+                arvausVaikuttaja += kahdenPotenssi(j);
+            }
+        }
+        int arvaus = valinta(arvausVaikuttaja);
+        ennustettuSeuraava = (vastustajanEdellinen + arvaus) % 3;
+    }
+    
+    /**
+     * Tätä käytetään hyöydyksi maaritaSeuraava-metodissa, jossa tämä arvo
+     * annetaan arvausVaikuttaja-muuttujalle. Tarvitaan vain arvot
+     * 2⁰=1, 2¹=2 ja 2²=4.
+     */
+    private int kahdenPotenssi(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        if (n == 1) {
+            return 2;
+        }
+        return 4;
+    }
+    
+    /**
+     * 
+     * @param n - arvo, joka saatiin arvausVaikuttaja-muuttujalle
+     * @return palautettu arvo on joko 0, 1 tai 2, jossa 0 tarkoittaa, että
+     * pelaajan ennustetaan valitsevan saman kuin viimeksi, 1 sen voittavan
+     * ja 2 sille häviävän.
+     */
+    private int valinta(int n) {
+        if (n == 1) {
+            return 0;
+        }
+        if (n == 2) {
+            return 1;
+        }
+        if (n == 3) {
+            return random.nextInt(2);
+        }
+        if (n == 4) {
+            return 2;
+        }
+        if (n == 5) {
+            return 2 * random.nextInt(2);
+        }
+        if (n == 6) {
+            return random.nextInt(2) + 1;
+        }
+        return random.nextInt(3);
     }
     
 }
