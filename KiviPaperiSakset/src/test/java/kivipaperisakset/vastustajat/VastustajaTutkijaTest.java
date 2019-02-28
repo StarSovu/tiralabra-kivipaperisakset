@@ -42,13 +42,5 @@ public class VastustajaTutkijaTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    @Test
-    public void vastustajaTestausta() {
-        vastustaja.algoritminEdellinen = 1;
-        vastustaja.algoritminToiseksiEdellinen = 1;
-        vastustaja.vastustajanEdellinen = 1;
-        vastustaja.vastustajanToiseksiEdellinen = 1;
-        vastustaja.paivitaEdellisetValinnat();
-        assertTrue(vastustaja.aiemmatValinnat[0][0][0] == 1);
-    }
+    
 }
