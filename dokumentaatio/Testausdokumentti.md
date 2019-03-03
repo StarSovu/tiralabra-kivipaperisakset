@@ -1,3 +1,1 @@
-Tällä hetkellä ei ole vielä toimivia testejä algoritmiin VastustajaTutkija, eli siihen algoritmiin, mitä lopullinen ohjelma käyttää. Aikaisemmin oli yksi, mutta tämä oli vanhentunut testi, eli luokkaa oli myöhemmin muokattu niin, ettei testi ole enää toimintakelpoinen.
-
-Myös aikaisempiin luokkiin oli jonkin verran testejä.
+VastustajaTutkija-luokkaan on nyt tehty onnistunut testi, joka testaa, toimiiko luokka oikein koko ajan samaa syötettä antamisen jälkeen.
