@@ -39,8 +39,12 @@ public class VastustajaTutkijaTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    
+    @Test
+    public void annetaanSamaa() {
+        for (int i = 0; i < 5; i++) {
+            vastustaja.valitse();
+            vastustaja.vastaanotaValinta(1);
+        }
+        assertTrue(vastustaja.valitse() == 2);
+    }
 }

@@ -12,13 +12,13 @@ import java.util.Random;
  * @author sovu
  */
 public class VastustajaTutkija implements Vastustaja {
-    Random random;
-    int vastustajanEdellinen;
-    int vastustajanToiseksiEdellinen;
-    int algoritminEdellinen;
-    int algoritminToiseksiEdellinen;
-    int ennustettuSeuraava;
-    int[][] aiemmatValinnat;
+    private Random random;
+    private int vastustajanEdellinen;
+    private int vastustajanToiseksiEdellinen;
+    private int algoritminEdellinen;
+    private int algoritminToiseksiEdellinen;
+    private int ennustettuSeuraava;
+    private int[][] aiemmatValinnat;
     
     /**
      * Aiemmat valinnat selitys: Taulukon ensimmäinen luku (0, 1 tai 2) kertoo,
@@ -73,7 +73,7 @@ public class VastustajaTutkija implements Vastustaja {
      * Määrittää ennustetun seuraavan valinnan pelaajalle sen perusteella,
      * mitä käyttäjä on aikaisemmin valinnut.
      */
-    public void maaritaSeuraava() {
+    private void maaritaSeuraava() {
         int i = (algoritminToiseksiEdellinen - vastustajanToiseksiEdellinen + 3) % 3;
         int k = 0;
         int arvausVaikuttaja = 0;
