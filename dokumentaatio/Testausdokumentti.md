@@ -1,1 +1,1 @@
-VastustajaTutkija-luokkaan on nyt tehty onnistunut testi, joka testaa, toimiiko luokka oikein koko ajan samaa syötettä antamisen jälkeen.
+VastustajaTutkija-luokkaan on nyt tehty onnistunut testi, joka testaa, toimiiko luokka oikein koko ajan samaa syötettä antamisen jälkeen. Tässä syötteenä annetaan 1 (paperi), ja viiden paperin jälkeen algoritmi antaa 2 (sakset). Tämä voitaisiin toistaa testaamalla myös toistuvaa saksien ja kiven antamista.
