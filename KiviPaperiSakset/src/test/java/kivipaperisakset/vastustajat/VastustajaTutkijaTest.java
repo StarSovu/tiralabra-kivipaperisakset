@@ -40,11 +40,29 @@ public class VastustajaTutkijaTest {
     }
 
     @Test
-    public void annetaanSamaa() {
+    public void annetaanToistuvastiPaperia() {
         for (int i = 0; i < 5; i++) {
             vastustaja.valitse();
             vastustaja.vastaanotaValinta(1);
         }
         assertTrue(vastustaja.valitse() == 2);
+    }
+    
+    @Test
+    public void annetaanToistuvastiKivea() {
+        for (int i = 0; i < 5; i++) {
+            vastustaja.valitse();
+            vastustaja.vastaanotaValinta(0);
+        }
+        assertTrue(vastustaja.valitse() == 1);
+    }
+    
+    @Test
+    public void annetaanToistuvastiSaksia() {
+        for (int i = 0; i < 5; i++) {
+            vastustaja.valitse();
+            vastustaja.vastaanotaValinta(2);
+        }
+        assertTrue(vastustaja.valitse() == 0);
     }
 }
