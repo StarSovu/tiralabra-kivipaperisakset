@@ -21,8 +21,7 @@ public class Main {
          * on tiedettävä ulkopuolisesti, mikä luku on mikäkin algoritmi).
          */
         
-        /**
-        System.out.println("Valitse algoritmi (1 tai 2, muu valitsee satunnaisen)");
+        System.out.println("Valitse algoritmi (1, 2 tai 3, muu valitsee satunnaisen)");
         
         VastustajanValinta algoritmiValinta = new VastustajanValinta();
         String algoritmiValinta2 = lukija.nextLine();
@@ -32,12 +31,12 @@ public class Main {
             vastustaja = algoritmiValinta.valittuVastustaja(1);
         } else if (algoritmiValinta2.equals("2")) {
             vastustaja = algoritmiValinta.valittuVastustaja(2);
+        } else if (algoritmiValinta2.equals("3")) {
+            vastustaja = algoritmiValinta.valittuVastustaja(3);
+        
         } else {
             vastustaja = algoritmiValinta.satunnainenVastustaja();
         }
-        */
-        
-        Vastustaja vastustaja = new VastustajaTutkija();
         
         System.out.println("Valitse kivi, paperi tai sakset. k=kivi, p=paperi, s=sakset, kaikki muu lopettaa");
         

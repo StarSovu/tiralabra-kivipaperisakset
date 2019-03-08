@@ -9,6 +9,7 @@ import kivipaperisakset.vastustajat.VastustajanEdellinenValintaVastastrategia;
 import kivipaperisakset.vastustajat.Vastustaja;
 import kivipaperisakset.vastustajat.VastustajanEdellinenValinta;
 import java.util.Random;
+import kivipaperisakset.vastustajat.VastustajaTutkija;
 
 public class VastustajanValinta {
     private Random random;
@@ -26,8 +27,10 @@ public class VastustajanValinta {
         Vastustaja vastustaja;
         if (vastustajaLuku == 1) {
             vastustaja = new VastustajanEdellinenValinta();
-        } else {
+        } else if (vastustajaLuku == 2) {
             vastustaja = new VastustajanEdellinenValintaVastastrategia();
+        } else {
+            vastustaja = new VastustajaTutkija();
         }
         return vastustaja;
     }

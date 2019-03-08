@@ -65,4 +65,13 @@ public class VastustajaTutkijaTest {
         }
         assertTrue(vastustaja.valitse() == 0);
     }
+    
+    @Test
+    public void vuorottelu() {
+        for (int i = 0; i < 5; i++) {
+            vastustaja.valitse();
+            vastustaja.vastaanotaValinta(i % 3);
+        }
+        assertTrue(vastustaja.valitse() == 0);
+    }
 }
