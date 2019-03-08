@@ -63,15 +63,27 @@ public class Main {
             int vastustajanValinta = vastustaja.valitse() - 3;
             vastustaja.vastaanotaValinta(valinta2);
             
+            String vastustajanValinta2 = "";
+            if (vastustajanValinta == -3) {
+                vastustajanValinta2 = "kiven";
+            } else if (vastustajanValinta == -2) {
+                vastustajanValinta2 = "paperin";
+            } else {
+                vastustajanValinta2 = "sakset";
+            }
+            
             int voitto = (valinta2 - vastustajanValinta) % 3;
             
+            String tilanne;
             if (voitto == 0) {
-                System.out.println("tasapeli");
+                tilanne = "Tasapeli";
             } else if (voitto == 1) {
-                System.out.println("voitto");
+                tilanne = "Voitto";
             } else {
-                System.out.println("häviö");
+                tilanne = "Häviö";
             }
+            
+            System.out.println("Vastustaja valitsi " + vastustajanValinta2 + ". " + tilanne + ".");
             
             tilastot[voitto]++;
             
